@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валентинка</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display&family=Lato:wght@400;700&display=swap');
+
+        body {
+            background-color: #f8d7da; /* Нежно-розовый однотонный фон */
+            font-family: 'Lato', sans-serif;
+            color: #5f2a77; /* Тёмно-розовый цвет для текста */
+        }
+
+        h1, h2, h3, p {
+            font-family: 'Playfair Display', serif;
+            color: #5f2a77; /* Тёмный цвет для заголовков */
+        }
+
+
+        
+        .heart {
+            font-size: 6rem;
+            color: #e83e8c; /* Ярко-розовый цвет */
+        }
+
+        .button {
+            background-color: #ff6b81; /* Пастельный розовый для кнопок */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ff4d6d; /* Более яркий розовый при наведении */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .text-pink {
+            color: #ff6b81;
+        }
+
+        .input-style {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #e83e8c;
+            width: 200px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .input-style:focus {
+            outline: none;
+            border-color: #ff4d6d;
+        }
+    </style>
+</head>
+<body class="p-10 text-center">
+
+    <div class="container">
+        <h1 class="text-4xl font-bold mb-5">С Днём Святого Валентина!</h1>
+        <div class="heart">💖</div>
+
+        <!-- Вспомни момент -->
+        <div class="mt-10">
+            <h2 class="text-2xl font-semibold">Вспомни момент:</h2>
+            
+            <!-- Первый момент: НАШ сериал -->
+            <div class="mt-5">
+                <p class="text-lg">1. НАШ сериал</p>
+                <input type="text" id="moment1" class="input-style" placeholder="Введите сериал" />
+                <button class="button mt-3" onclick="checkMoment1()">Проверить</button>
+                <p id="result1" class="mt-2 text-red-500"></p>
+            </div>
+
+            <!-- Второй момент: Дата первого кринжа -->
+            <div class="mt-5">
+                <p class="text-lg">2. Дата первого кринжа</p>
+                <input type="text" id="moment2" class="input-style" placeholder="Введите дату" />
+                <button class="button mt-3" onclick="checkMoment2()">Проверить</button>
+                <p id="result2" class="mt-2 text-red-500"></p>
+            </div>
+
+            <!-- Третий момент: Кто мы -->
+            <div class="mt-5">
+                <p class="text-lg">3. Кто мы</p>
+                <input type="text" id="moment3" class="input-style" placeholder="Введите название" />
+                <button class="button mt-3" onclick="checkMoment3()">Проверить</button>
+                <p id="result3" class="mt-2 text-red-500"></p>
+            </div>
+        </div>
+
+        <div class="mt-10">
+            <button class="button text-2xl font-bold px-6 py-3 rounded-md" onclick="showMessageForLovedOne()">Для любимой</button>
+            <div id="lovedOneMessage" class="mt-5 text-lg text-gray-700 hidden">
+                <p class="text-xl font-semibold">Наши пути в этом море любви, это плавание в ебанный шторм, но мы держимся на плаву уже достаточное количество времени. 
+                    Самые сильные волны еще нас ждут, но благодаря им наша любовь окрепнет.</p>
+                <p class="mt-4 text-3xl font-extrabold text-gradient text-center">
+                    Я люблю тебя, принцесса 
+                    <span class="text-red-600">❤️</span>
+                    <span class="text-yellow-600">🔥</span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Правильные ответы для моментов
+        const answers = {
+            moment1: "Кухня",
+            moment2: "17.11",
+            moment3: "Скуфы"
+        };
+
+        function checkMoment1() {
+            let answer1 = document.getElementById('moment1').value;
+            if (answer1 === answers.moment1) {
+                document.getElementById('result1').innerText = "Все правильно, чмок! 💋";
+                document.getElementById('result1').style.color = "green";
+            } else {
+                document.getElementById('result1').innerText = "Неа, не то.";
+                document.getElementById('result1').style.color = "red";
+            }
+        }
+
+        function checkMoment2() {
+            let answer2 = document.getElementById('moment2').value;
+            if (answer2 === answers.moment2) {
+                document.getElementById('result2').innerText = "Все правильно, чмок! 💋";
+                document.getElementById('result2').style.color = "green";
+            } else {
+                document.getElementById('result2').innerText = "Неа, не то.";
+                document.getElementById('result2').style.color = "red";
+            }
+        }
+
+        function checkMoment3() {
+            let answer3 = document.getElementById('moment3').value;
+            if (answer3 === answers.moment3) {
+                document.getElementById('result3').innerText = "Все правильно, чмок! 💋";
+                document.getElementById('result3').style.color = "green";
+            } else {
+                document.getElementById('result3').innerText = "Неа, не то.";
+                document.getElementById('result3').style.color = "red";
+            }
+        }
+
+        function showMessageForLovedOne() {
+        document.getElementById('lovedOneMessage').classList.remove('hidden');
+    }
+    </script>
+
+</body>
+</html>
